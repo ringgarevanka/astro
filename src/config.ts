@@ -6,7 +6,6 @@ import type {
   ProjectPageContent,
   BlogPageContent,
   HomePageContent,
-  NotfoundPageContent,
 } from "./types/config";
 
 export const identity: Identity = {
