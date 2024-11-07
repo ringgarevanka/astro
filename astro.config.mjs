@@ -3,7 +3,10 @@ import AstroPWA from '@vite-pwa/astro';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import { remarkReadingTime } from './remark-reading-time.mjs';
-import node from '@astrojs/node';
+
+/* Choose One Based on your platform */
+// import node from '@astrojs/node';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   integrations: [
@@ -42,8 +45,12 @@ export default defineConfig({
     icon(),
   ],
   output: "server",
-  adapter: node({
+  /* Choose One Based on your platform */
+  /* adapter: node({
     mode: 'standalone',
+  }), */
+  adapter: netlify({
+    edgeMiddleware: true
   }),
   markdown: {
     remarkPlugins: [remarkReadingTime],
